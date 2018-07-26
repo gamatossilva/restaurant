@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import com.restaurant.restaurant.models.Restaurant;
 
 public interface RestaurantRepository extends CrudRepository<Restaurant, String>{
-
+	Restaurant findByCodigo(long codigo);
 }

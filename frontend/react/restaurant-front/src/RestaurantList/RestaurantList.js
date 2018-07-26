@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router';
 
 class RestaurantList extends Component {
     constructor(props) {
@@ -37,16 +38,28 @@ class RestaurantList extends Component {
             return <div>Loading...</div>
         } else {
             return (
-                <ul>
-                    {items.map(item => (
-                        <li key={item.codigo}>
-                            Id: {item.codigo} <br />
-                            Name: {item.name} <br />
-                        </li>
-                    ))}
-                </ul>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <Link to={"restaurants/post"}>Adicionar Restaurante</Link>
+                        </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                        <div className="col-md-12">
+                            <ul>
+                                {items.map(item => (
+                                    <li key={item.codigo}>
+                                        <Link to={"/restaurant/" + item.codigo}>
+                                            {item.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             )
-
         }
     }
 }

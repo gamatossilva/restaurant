@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Details from './Details';
+
+import {browserHistory} from 'react-router';
 
 class ApiRequest extends Component {
     constructor(props) {
@@ -31,6 +34,10 @@ class ApiRequest extends Component {
             )
     }
 
+    onNavigateDetails(){
+        browserHistory.push("/detalhes")
+    }
+
     render() {
         const { error, isLoaded, items } = this.state;
         if (error) {
@@ -40,6 +47,8 @@ class ApiRequest extends Component {
         } else {
             console.log(this.state.items);
             return (
+                <div>
+                    <button onClick={this.onNavigateDetails}>Detalhes</button>
                 <ul>
                     {items.map(item => (
                         <li key={item.id}>
@@ -50,6 +59,8 @@ class ApiRequest extends Component {
                         </li>
                     ))}
                 </ul>
+                </div>
+
             );
         }
     }
