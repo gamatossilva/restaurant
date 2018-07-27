@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>{{title}}</h1>
+              <!--<button class="btn btn-primary" (click)="getPosts()">Get Posts</button>-->
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-12">
+            <ul>
+                <li (click)="onSelect(post)" *ngFor="let post of posts"><a routerLink="/restaurant">{{post.codigo}} | {{post.name}}</a></li>
+            </ul>     
+          </div>
+        </div>
+      </div>
+</body>
+</html>
