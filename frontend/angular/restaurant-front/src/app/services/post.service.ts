@@ -23,4 +23,13 @@ export class PostService {
     getRestaurantMenu(id) {
         return this.httpClient.get(END_POINT + '/' + id);
     }
+
+    postRestaurant(restaurantName) {
+        const data = JSON.stringify({
+            name: restaurantName
+        });
+
+        this.httpClient.post(END_POINT, data);
+    }
+
 }

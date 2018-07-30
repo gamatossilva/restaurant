@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { PostService } from './services/post.service';
 import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
+import { RestaurantPostComponent } from './restaurant-post/restaurant-post.component';
 
 const appRoutes: Routes = [
   { path: 'restaurant', component: RestaurantMenuComponent },
@@ -18,12 +19,17 @@ const appRoutes: Routes = [
     AppComponent,
     RestaurantComponent,
     RestaurantMenuComponent,
+    RestaurantPostComponent,
   ],
   imports: [
     RouterModule.forRoot([
       {
         path: 'restaurant/:id',
         component: RestaurantMenuComponent
+      },
+      {
+        path: 'restaurants/post',
+        component: RestaurantPostComponent
       },
       {
         path: '',
