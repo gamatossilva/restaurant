@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-restaurant-post',
@@ -8,14 +9,23 @@ import { PostService } from '../services/post.service';
 })
 export class RestaurantPostComponent implements OnInit {
 
-  constructor(private postService: PostService) { }
+  restaurants: any;
+  constructor(private postService: PostService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  onPost() {
-    let restaurantName = 'restaurante 10';
-    this.postService.postRestaurant(restaurantName);
+  onPost(restaurantName) {
+    const newRestaurant = {
+      name: restaurantName
+    };
+    this.router.navigate(['']);
+    //this.postService.postRestaurant(restaurantName);
+    this.postService.postRestaurant(newRestaurant).subscribe(
+      restaurant => this.restaurants.push(restaurant)
+    );
   }
 
 }
+
+

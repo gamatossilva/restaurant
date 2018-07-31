@@ -8,6 +8,7 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { PostService } from './services/post.service';
 import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
 import { RestaurantPostComponent } from './restaurant-post/restaurant-post.component';
+import { RestaurantMenuPostComponent } from './restaurant-menu-post/restaurant-menu-post.component';
 
 const appRoutes: Routes = [
   { path: 'restaurant', component: RestaurantMenuComponent },
@@ -20,12 +21,17 @@ const appRoutes: Routes = [
     RestaurantComponent,
     RestaurantMenuComponent,
     RestaurantPostComponent,
+    RestaurantMenuPostComponent,
   ],
   imports: [
     RouterModule.forRoot([
       {
         path: 'restaurant/:id',
         component: RestaurantMenuComponent
+      },
+      {
+        path: 'restaurant/:id/post',
+        component: RestaurantMenuPostComponent
       },
       {
         path: 'restaurants/post',

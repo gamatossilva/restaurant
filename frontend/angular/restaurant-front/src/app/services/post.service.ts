@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const END_POINT = 'http://localhost:8080/restaurantJson/';
 
@@ -9,6 +9,8 @@ const END_POINT = 'http://localhost:8080/restaurantJson/';
 
 
 export class PostService {
+
+
 
     constructor(private httpClient: HttpClient) { }
 
@@ -24,12 +26,35 @@ export class PostService {
         return this.httpClient.get(END_POINT + '/' + id);
     }
 
-    postRestaurant(restaurantName) {
-        const data = JSON.stringify({
-            name: restaurantName
-        });
+    postRestaurant(restaurant: RestaurantInterface) {
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+            })
+        };
+        return this.httpClient.post(END_POINT, restaurant, httpOptions);
+    }
 
-        this.httpClient.post(END_POINT, data);
+    postMenu(menuItems: RestaurantMenuItems, id) {
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+            })
+        };
+        return this.httpClient.post(END_POINT + '/' + id + '/menu', menuItems, httpOptions);
     }
 
 }
+
+
+interface RestaurantInterface {
+    name: string;
+  }
+
+
+  interface RestaurantMenuItems {
+      name: string;
+      course: string;
+      description: string;
+      price: any;
+  }

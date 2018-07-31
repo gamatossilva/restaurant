@@ -8,7 +8,7 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./restaurant-menu.component.css']
 })
 export class RestaurantMenuComponent implements OnInit {
-  restaurantId;
+  restaurantId: number;
   restaurantMenu: any;
   constructor(private route: ActivatedRoute, private postService: PostService) {
   }
@@ -29,5 +29,5 @@ export class RestaurantMenuComponent implements OnInit {
 interface RestaurantMenuInterface {
   codigo: number;
   name: string;
-  menuItems;
+  menuItems: any;
 }

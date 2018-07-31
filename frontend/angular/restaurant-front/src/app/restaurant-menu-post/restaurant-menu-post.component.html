@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <a href="/restaurant/{{id}}">Menu do Restaurante</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form>
+        <div class="form-group">
+          <label for="menuItemName">Nome</label>
+          <input #menuItemName (keyup)="0" type="text" name="name" class="form-control" id="menuItemName" placeholder="Nome do item">
+        </div>
+        <div class="form-group">
+          <label for="menuItemCourse">Tipo</label>
+          <input #menuItemCourse (keyup)="0" type="text" name="course" class="form-control" id="menuItemCourse" placeholder="Tipo do item">
+        </div>
+        <div class="form-group">
+          <label for="menuItemDescription">Descrição</label>
+          <input #menuItemDescription (keyup)="0" type="text" name="description" class="form-control" id="menuItemDescription" placeholder="Descrição do item">
+        </div>
+        <div class="form-group">
+          <label for="menuItemPrice">Preço</label>
+          <input #menuItemPrice (keyup)="0" type="text" name="price" class="form-control" id="menuItemPrice" placeholder="Preço do item">
+        <br>
+        </div>
+        <button (click)="postRestaurantMenu(menuItemName.value, menuItemCourse.value, menuItemDescription.value, menuItemPrice.value)" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
